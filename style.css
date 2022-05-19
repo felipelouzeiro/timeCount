@@ -1,3 +1,46 @@
 body {
   background-color: black;
+  margin: 64px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 24px;
+}
+
+button {
+  border: none;
+  border-radius: 3px;
+  font-size: 24px;
+
+  padding: 4px 8px;
+}
+
+button.start {
+  background-color: #47c2ff;
+  color: white;
+}
+
+button.reset {
+  background-color: #ed3030;
+  color: white;
+}
+
+button:hover {
+  background-color: #8c119e;
+  color: rgb(255, 254, 254);
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 64px;
+  color: white;
+}
+
+input {
+  font-size: 24px;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 3px;
+  background-color: #f9f9f9;
 }
