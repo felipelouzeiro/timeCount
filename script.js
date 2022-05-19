@@ -1,18 +1,21 @@
+// verifica ao carregar a página
+
 let finalDate;
 let intervalId;
 
-const second = 1000;
-const minute = 60 * second;
-const hour = 60 * minute;
-const day = 24 * hour;
+window.onload = resumeStopwatch();
 
-// verifica ao carregar a página
-if (localStorage.getItem("timer")) {
-  finalDate = localStorage.getItem("timer");
-  intervalId = setInterval(countdownTimer, 1000);
+// verifica se existe um timer rodando e retoma a contagem
+function resumeStopwatch() {
+  if (localStorage.getItem("timer")) {
+    finalDate = localStorage.getItem("timer");
+    intervalId = setInterval(countdownTimer, 1000);
+  }
 }
 
 function start() {
+  clearInterval(intervalId);
+
   const selectDate = document.querySelector("input").value;
   finalDate = new Date(selectDate).getTime();
 
@@ -22,6 +25,11 @@ function start() {
 }
 
 function countdownTimer() {
+  const second = 1000;
+  const minute = 60 * second;
+  const hour = 60 * minute;
+  const day = 24 * hour;
+
   let nowDate = new Date().getTime();
   let diff = (finalDate - nowDate);
 
